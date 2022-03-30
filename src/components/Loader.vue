@@ -1,5 +1,5 @@
 <template>
-  <div class="preloader" :style="cssVars">
+  <div class="preloader">
     <span class="rot-1"></span>
     <span class="rot-2"></span>
     <span class="rot-3"></span>
@@ -14,24 +14,6 @@
 <script>
 export default {
   name: 'homeLoader',
-  props: {
-    color: {
-      type: String,
-      default: '#41b883',
-    },
-    scale: {
-      type: Number,
-      default: 1,
-    },
-  },
-  computed: {
-    cssVars() {
-      return {
-        '--color': this.color,
-        '--scale': this.scale,
-      }
-    }
-  }
 }
 </script>
 
@@ -41,7 +23,6 @@ export default {
   width: 125px;
   height: 125px;
   margin: auto;
-  transform: scale(var(--scale));
 }
 .preloader > span {
   position: absolute;
@@ -49,7 +30,7 @@ export default {
   height: 22px;
   width: 22px;
   border-radius: 12px;
-  animation-name: f_fadeG;
+  animation-name: rotate;
   animation-duration: 1.2s;
   animation-iteration-count: infinite;
   animation-direction: normal;
@@ -94,9 +75,9 @@ export default {
   bottom: 15px;
   animation-delay: 1.5s;
 }
-@keyframes f_fadeG {
+@keyframes rotate {
   0% {
-    background-color: var(--color);
+    background-color: #41b883;
   }
   100% {
     background-color: transparent;
