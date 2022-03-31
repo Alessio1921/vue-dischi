@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <Header />
-    <CardList />
+    <Header @select="userSelect"/>
+    <!-- <h2>{{selected}}</h2> -->
+    <CardList :userSelected="selected" />
   </div>
 </template>
 
@@ -14,6 +15,17 @@ export default {
   components: {
     Header,
     CardList
+  },
+  data:function(){
+    return{
+      selected:""
+    }
+  },
+  methods:{
+    userSelect(value){
+      this.selected=value;
+      console.log(this.selected);
+    }
   }
 }
 </script>

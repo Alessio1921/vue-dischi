@@ -1,8 +1,9 @@
 <template>
   <main class="pb-5">
     <div class="container">
+      <div class="col-12 text-white text-center fs-1">{{userSelected}}</div>
       <div class="row row-cols-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6" v-if="elementList">
-        <div class="col" v-for="(element,index) in elementList" :key="index">
+        <div class="col" v-for="(element,index) in filter" :key="index">
           <Card 
             :card="element"
           />
@@ -23,6 +24,7 @@ export default {
   Loader
   },
   name: 'CardList',
+  props:{'userSelected':String},
   data:function(){
     return{
       elementList:null
@@ -40,6 +42,14 @@ export default {
   },
   mounted() {
     setTimeout(this.getApi,2000)
+  },
+  computed:{
+    filter(){
+      if(this.userSelected==''){
+        return this.elementList;
+      }
+      return this.elementList.filter(element=>element.genre==this.userSelected)
+    }
   }
   
 }
