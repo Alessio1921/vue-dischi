@@ -1,6 +1,9 @@
 # vue-dischi
+
 Functionality:
+
 API call to get songs.
+
 Loading screen shown until all songs are retrieved, set to two seconds to show it.
 
 <img width="1440" alt="Schermata 2022-06-03 alle 13 03 10" src="https://user-images.githubusercontent.com/95136261/171842007-af1338e2-95f7-4400-a02c-c068682a2e22.png">
